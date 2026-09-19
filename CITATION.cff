@@ -1,10 +1,22 @@
 cff-version: 1.2.0
-message: "If you use this software or the archived study results, please cite the associated publication and this repository."
+message: "If you use this software, please cite it as below."
+
 title: "LLM-Assisted-LCA"
 type: software
+version: 1.0.0
+date-released: 2026-09-19
+
 authors:
-  - family-names: "Bhattarai"
-    given-names: "Pawan"
-date-released: 2026-08-30
-license: MIT
+  - family-names: Bhattarai
+    given-names: Pawan
+
 repository-code: "https://github.com/bhattaraipawan/LLM-Assisted-LCA"
+
+license: MIT
+
+keywords:
+  - life cycle assessment
+  - embodied carbon
+  - large language models
+  - openLCA
+  - building sustainability
