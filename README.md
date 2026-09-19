@@ -1,4 +1,4 @@
-# LLM-Enhanced LCA
+# LLM-Assisted-LCA
 
 Open-source workflow for LLM-assisted **A1–A3 upfront embodied-carbon screening** from building bills of materials (BOMs).
 
