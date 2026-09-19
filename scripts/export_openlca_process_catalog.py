@@ -21,7 +21,7 @@ Usage
 
 Requirements
 ------------
-    pip install -r requirements_ELCD.txt
+    pip install -r requirements-local.txt
 """
 
 from __future__ import annotations
