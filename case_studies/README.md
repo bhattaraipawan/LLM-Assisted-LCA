@@ -6,13 +6,15 @@ This directory contains the three standardized BOM inputs used in the manuscript
 - `BOM_Bamboo_Template.xlsx`
 - `BOM_Attic_Template.xlsx`
 
+A supplementary independent Balpremi School analysis uses `BOM_Balpremi_School_Independent.xlsx`; its results are archived in `results/BOM_Balpremi_School_Independent.zip`.
+
 Required BOM columns are `Material`, `Quantity`, and `Unit`; `ID` is recommended.
 
 The formal study identifiers use `S..`, `B..`, and `A..` prefixes so candidate presentation remains aligned with the controlled benchmark protocol. These identifiers affect reproducible candidate ordering only; they do not encode ELCD selections or environmental values.
 
 ## Frozen manuscript outputs
 
-`results/` contains the archived outputs from the study runs completed on **30 August 2026**. Repository cleanup changed only filenames and folder organization; it did not recalculate or edit the numerical workbook contents.
+`results/` contains the archived outputs from the three residential study runs completed on **30 August 2026**. Repository cleanup changed only filenames and folder organization; it did not recalculate or edit the numerical workbook contents.
 
 Each building folder contains:
 

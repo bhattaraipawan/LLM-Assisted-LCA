@@ -3150,7 +3150,7 @@ class ExternalEFResolver:
     def _estimate_dynamic_frozen_database_proxy(self, material: str, source_unit: Any):
         """Class-4A: same-family dynamic proxy using only frozen database numbers."""
         preferred = norm_unit(source_unit)
-        if preferred not in {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj"}:
+        if preferred not in {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj", "m"}:
             self._last_fallback_attempts.append({
                 "stage": "CLASS5A_DYNAMIC_FROZEN_DATABASE_PROXY", "accepted": False,
                 "reason": f"unsupported_reference_unit:{preferred or 'blank'}",
@@ -3244,7 +3244,7 @@ class ExternalEFResolver:
     def _estimate_dynamic_frozen_analog_proxy(self, material: str, source_unit: Any):
         """Class-4B: dynamically inferred nearby analog, but factor remains database-derived."""
         preferred = norm_unit(source_unit)
-        if preferred not in {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj"}:
+        if preferred not in {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj", "m"}:
             self._last_fallback_attempts.append({
                 "stage": "CLASS5B_DYNAMIC_FROZEN_ANALOG_PROXY", "accepted": False,
                 "reason": f"unsupported_reference_unit:{preferred or 'blank'}",
@@ -3446,7 +3446,7 @@ class ExternalEFResolver:
         verified subtotal.
         """
         preferred = norm_unit(source_unit)
-        supported = {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj"}
+        supported = {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj","m"}
         if preferred not in supported:
             self._last_fallback_attempts.append({
                 "stage": "CLASS5C_TERMINAL_MODEL_ONLY", "accepted": False,

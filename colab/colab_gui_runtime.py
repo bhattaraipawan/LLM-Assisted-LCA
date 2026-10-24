@@ -516,6 +516,49 @@ class NativeColabLCAApp:
         self._set_stage("Qwen material normalization and process selection")
         batch = self._match_with_progress(df)
         batch = self._apply_biogenic_reporting_policy(batch)
+        
+# Reject negative ELCD Direct/Proxy emission factors.
+# Keep the original Qwen selection for auditing.
+for idx, rec in batch.iterrows():
+    if not bool(rec.get("production_approved", False)):
+        continue
+
+    match_type = str(
+        rec.get("production_match_type") or ""
+    ).strip().lower()
+
+    if match_type not in {"direct", "proxy"}:
+        continue
+
+    uid = str(
+        rec.get("production_selected_process_uuid") or ""
+    ).strip()
+
+    snap = (self.snapshot.get("factors") or {}).get(uid) or {}
+
+    if snap.get("status") != "OK":
+        continue
+
+    try:
+        elcd_ef = float(snap.get("emission_factor"))
+    except (TypeError, ValueError):
+        continue
+
+    if elcd_ef < 0:
+        batch.at[idx, "production_approved"] = False
+        batch.at[idx, "negative_elcd_factor_excluded"] = True
+        batch.at[idx, "negative_elcd_factor_value"] = elcd_ef
+        batch.at[idx, "negative_elcd_factor_reason"] = (
+            "Negative frozen ELCD GWP factor excluded; "
+            "continue to external/Class-4 resolution."
+        )
+
+        self._log(
+            f"Negative ELCD factor excluded for "
+            f"{rec.get('original_material') or rec.get('normalized_material') or uid}: "
+            f"{elcd_ef:g}"
+        )
+
         bio_count = int(batch.get("biogenic_reporting_override", pd.Series(dtype=bool)).fillna(False).astype(bool).sum())
         if bio_count:
             self._log(

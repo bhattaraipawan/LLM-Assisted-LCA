@@ -20,7 +20,7 @@ from unit_conversion import norm_unit
 
 GUARDRAIL_VERSION = "2.1-material-agnostic-no-terminal-consensus"
 
-_SUPPORTED_FACTOR_UNITS = {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj"}
+_SUPPORTED_FACTOR_UNITS = {"kg", "g", "t", "m3", "l", "cm3", "m2", "cm2", "mm2", "item", "kwh", "mj", "m"}
 
 
 def emission_factor_cap(material: Any, reference_unit: Any) -> None:

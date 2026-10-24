@@ -112,6 +112,8 @@ The manuscript case studies are provided under `case_studies/`:
 
 The corresponding frozen outputs are under `case_studies/results/`. Filenames were normalized for GitHub readability; the workbook contents and numerical results were not recalculated or altered during repository cleanup.
 
+An additional independent Balpremi School analysis is included as `case_studies/BOM_Balpremi_School_Independent.xlsx`, with its archived results at `case_studies/results/BOM_Balpremi_School_Independent.zip`. This supplementary analysis is separate from the three residential manuscript case studies.
+
 ## Reproducing the frozen study configuration
 
 For verification of the repository snapshot:
